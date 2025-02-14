@@ -108,3 +108,82 @@ The build output will be in the `dist` directory.
    - Check the browser console for any error messages
    - Ensure your network connection is stable
 
+## Docker Deployment
+
+### Prerequisites for Docker
+
+- Docker installed on your machine
+- Docker Compose (optional, but recommended)
+- Backend service running (either locally or in Docker)
+
+### Project Structure for Docker
+
+```
+frontend/
+├── Dockerfile
+├── docker-compose.yml
+├── nginx.conf
+├── .dockerignore
+└── .env
+```
+
+### Quick Start with Docker
+
+1. Build the Docker image:
+```bash
+docker build -t currency-monitor-frontend .
+```
+
+2. Run the container:
+```bash
+docker run -p 80:80 -e VITE_WS_URL=ws://your-backend-url currency-monitor-frontend
+```
+
+### Using Docker Compose
+
+1. Create a `.env` file with your environment variables:
+```env
+VITE_WS_URL=ws://your-backend-url
+```
+
+2. Run with docker-compose:
+```bash
+docker-compose up -d
+```
+
+3. Stop the services:
+```bash
+docker-compose down
+```
+
+### Environment Variables in Docker
+
+When running with Docker, you can set environment variables in multiple ways:
+- Using the `.env` file with docker-compose
+- Using the `-e` flag with docker run
+- Using environment section in docker-compose.yml
+
+### Production Deployment
+
+For production deployment, make sure to:
+1. Set the correct WebSocket URL for your backend
+2. Use HTTPS for security
+3. Configure proper CORS settings
+4. Set up proper networking between frontend and backend containers
+
+### Troubleshooting Docker Setup
+
+1. If the container fails to start:
+   - Check Docker logs: `docker logs <container_id>`
+   - Verify port availability: Ensure port 80 is not in use
+   - Check environment variables are properly set
+
+2. If you can't connect to the backend:
+   - Ensure the WebSocket URL is correctly set
+   - Check network connectivity between containers
+   - Verify the backend container is running
+
+3. For permission issues:
+   - Check file ownership in mounted volumes
+   - Verify nginx has proper permissions to serve files
+
