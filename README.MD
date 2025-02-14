@@ -2,6 +2,8 @@
 
 A real-time currency exchange rate monitoring application that provides live updates of currency rate changes with a modern, interactive interface.
 
+![App Overview](./src/assets/images/app-overview.png)
+
 ## Features
 
 - Real-time currency exchange rate monitoring
@@ -21,7 +23,6 @@ A real-time currency exchange rate monitoring application that provides live upd
 
 ```bash
 git clone <repository-url>
-cd <project-directory>/frontend
 ```
 
 2. Install dependencies:
