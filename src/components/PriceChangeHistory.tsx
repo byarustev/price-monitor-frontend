@@ -16,15 +16,15 @@ const PriceChangeHistory: React.FC<PriceChangeHistoryProps> = ({ changes }) => {
                             key={index}
                             className={`price-change-card ${change.newRate > change.oldRate ? 'increase' : 'decrease'}`}
                         >
+                            <div className="timestamp">
+                                {new Date(change.timestamp).toLocaleTimeString()}
+                            </div>
                             <div className="currency">{change.currency}</div>
                             <div className="price-change">
                                 {change.oldRate.toFixed(4)} → {change.newRate.toFixed(4)}
                             </div>
-                            <div className="change-percent">
+                            <div className={`change-percent ${change.newRate > change.oldRate ? 'increase' : 'decrease'}`}>
                                 {change.changePercent.toFixed(2)}%
-                            </div>
-                            <div className="timestamp">
-                                {new Date(change.timestamp).toLocaleTimeString()}
                             </div>
                         </div>
                     ))

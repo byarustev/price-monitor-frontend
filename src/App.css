@@ -339,12 +339,10 @@ tr:hover {
 
 .price-change-card.increase {
     border-left: 4px solid #4caf50;
-    background-color: #e8f5e9;
 }
 
 .price-change-card.decrease {
     border-left: 4px solid #f44336;
-    background-color: #ffebee;
 }
 
 .price-change-card .currency {
@@ -353,6 +351,8 @@ tr:hover {
     margin-bottom: 0.5rem;
     color: #333;
 }
+
+
 
 .price-change-card .price-change {
     font-family: monospace;
@@ -429,4 +429,12 @@ tr:hover {
     50% {
         transform: translateY(-10px);
     }
+}
+
+.change-percent.increase {
+    color: #4caf50;
+}
+
+.change-percent.decrease {
+    color: #f44336;
 }

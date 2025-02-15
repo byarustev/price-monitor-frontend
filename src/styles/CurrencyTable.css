@@ -1,0 +1,45 @@
+.rates-container {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rates-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.rates-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.rates-table th {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 2px solid #eee;
+    color: #666;
+    font-weight: 500;
+}
+
+.rates-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.rates-table tr:last-child td {
+    border-bottom: none;
+}
+
+.currency-cell {
+    font-weight: 500;
+    color: #333;
+}
+
+.rate-cell {
+    font-family: monospace;
+    color: #666;
+}

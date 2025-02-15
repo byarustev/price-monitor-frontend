@@ -1,5 +1,7 @@
 # Currency Exchange Monitor
 
+![Currency Exchange Monitor Overview](./src/assets/images/app-overview.png)
+
 A real-time currency exchange rate monitoring application that provides live updates of currency rate changes with a modern, interactive interface.
 
 ## Environment Variables
