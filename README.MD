@@ -8,7 +8,7 @@ Create a `.env` file in the frontend directory with the following variables:
 
 ```env
 # WebSocket Configuration
-VITE_WS_URL=ws://localhost:3000    # WebSocket server URL
+VITE_WS_URL=ws://localhost:3000?apiKey=your-client-access-key    # WebSocket server URL with authentication
 
 # Logger Configuration
 VITE_LOG_LEVEL=info                # Logging level (debug, info, warn, error)
@@ -21,9 +21,10 @@ VITE_PAPERTRAIL_HOSTNAME=currency-monitor-frontend  # Identifier in logs (option
 
 #### WebSocket Configuration
 - `VITE_WS_URL`: WebSocket server URL
-  - Default: ws://localhost:3000
+  - Default: ws://localhost:3000?apiKey=your-client-access-key
   - Required: Yes
-  - Example: ws://your-backend-url for production
+  - Example: ws://your-backend-url?apiKey=a3f1b2c4d5e6f7g8h9i0j1k2l3m4n5o6
+  - Note: The apiKey parameter is required for authentication. Get this from your backend team.
 
 #### Logger Configuration
 - `VITE_LOG_LEVEL`: The minimum level of logs to output
@@ -74,7 +75,7 @@ npm install
 3. Create a `.env` file in the frontend directory:
 
 ```env
-VITE_WS_URL=ws://localhost:3000
+VITE_WS_URL=ws://localhost:3000?apiKey=your-client-access-key
 ```
 
 4. Start the development server:
@@ -139,7 +140,7 @@ The build output will be in the `dist` directory.
 
 1. If you can't connect to the WebSocket server:
    - Ensure the backend server is running
-   - Check that the VITE_WS_URL in .env matches your backend server address
+   - Check that the VITE_WS_URL in .env matches your backend server address and includes the correct client access key
    - Check browser console for connection errors
 
 2. If you're not seeing updates:
@@ -182,7 +183,7 @@ docker run -p 80:80 -e VITE_WS_URL=ws://your-backend-url currency-monitor-fronte
 
 1. Create a `.env` file with your environment variables:
 ```env
-VITE_WS_URL=ws://your-backend-url
+VITE_WS_URL=ws://your-backend-url?apiKey=your-client-access-key
 ```
 
 2. Run with docker-compose:
