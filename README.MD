@@ -187,3 +187,39 @@ For production deployment, make sure to:
    - Check file ownership in mounted volumes
    - Verify nginx has proper permissions to serve files
 
+## Logging
+
+The application includes a custom logger that supports:
+- Multiple log levels (error, warn, info, debug)
+- Timestamps for all logs
+- Colored console output
+- Optional Papertrail integration
+- Structured metadata logging
+
+### Environment Variables for Logging
+
+| Variable | Description | Default | Required |
+|----------|-------------|---------|----------|
+| VITE_LOG_LEVEL | Logging level (debug, info, warn, error) | info | No |
+| VITE_PAPERTRAIL_HOST | Papertrail host | - | No |
+| VITE_PAPERTRAIL_PORT | Papertrail port | - | No |
+| VITE_PAPERTRAIL_HOSTNAME | Host identifier in logs | currency-monitor-frontend | No |
+
+### Log Levels
+
+- `error`: For errors that need immediate attention
+- `warn`: For warning conditions
+- `info`: For general operational information
+- `debug`: For detailed debugging information
+
+### Example Usage
+
+```javascript
+import { logger } from './utils/logger';
+
+logger.info('Application started');
+logger.warn('Rate limit approaching', { current: 95, limit: 100 });
+logger.error('Failed to connect', { error: 'Connection timeout' });
+logger.debug('Processing update', { data: someData });
+```
+
