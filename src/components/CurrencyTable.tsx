@@ -1,14 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { Rates } from '../types';
 
-function CurrencyTable({ rates }) {
+interface CurrencyTableProps {
+    rates: Rates;
+}
+
+const CurrencyTable: React.FC<CurrencyTableProps> = ({ rates }) => {
     return (
-        <div className="rates-table">
+        <div className="currency-table">
             <h2>Current Exchange Rates</h2>
             <table>
                 <thead>
                     <tr>
                         <th>Currency</th>
-                        <th>Rate (EUR)</th>
+                        <th>Rate</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,7 +26,7 @@ function CurrencyTable({ rates }) {
                 </tbody>
             </table>
         </div>
-    )
-}
+    );
+};
 
-export default CurrencyTable 
+export default CurrencyTable; 

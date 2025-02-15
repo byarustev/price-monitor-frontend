@@ -229,3 +229,163 @@ tr:hover {
     background-color: rgba(245, 245, 245, 0.5);
     transition: background-color 0.2s ease;
 }
+
+/* Rate Change Alert Styles */
+.rate-change-alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+    min-width: 300px;
+    background-color: white;
+    /* Add explicit background */
+}
+
+.rate-change-alert.increase {
+    background-color: #e8f5e9;
+    border-left: 4px solid #4caf50;
+}
+
+.rate-change-alert.decrease {
+    background-color: #ffebee;
+    border-left: 4px solid #f44336;
+}
+
+.alert-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.alert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert-header .currency {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 0 4px;
+    color: #666;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+.alert-body {
+    font-size: 0.9em;
+}
+
+.rate-details {
+    color: #666;
+    margin-top: 4px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Price History Styles */
+.price-history {
+    margin-bottom: 2rem;
+}
+
+.price-changes-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+.price-change-card {
+    flex: 0 0 auto;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.price-change-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.price-change-card.increase {
+    border-left: 4px solid #4caf50;
+    background-color: #e8f5e9;
+}
+
+.price-change-card.decrease {
+    border-left: 4px solid #f44336;
+    background-color: #ffebee;
+}
+
+.price-change-card .currency {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.price-change-card .price-change {
+    font-family: monospace;
+    /* For better alignment of numbers */
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    /* Keep arrow and numbers on same line */
+}
+
+.price-change-card .change-percent {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.price-change-card .timestamp {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.price-changes-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.price-changes-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.price-changes-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
