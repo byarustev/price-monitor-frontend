@@ -2,7 +2,47 @@
 
 A real-time currency exchange rate monitoring application that provides live updates of currency rate changes with a modern, interactive interface.
 
-![App Overview](./src/assets/images/app-overview.png)
+## Environment Variables
+
+Create a `.env` file in the frontend directory with the following variables:
+
+```env
+# WebSocket Configuration
+VITE_WS_URL=ws://localhost:3000    # WebSocket server URL
+
+# Logger Configuration
+VITE_LOG_LEVEL=info                # Logging level (debug, info, warn, error)
+VITE_PAPERTRAIL_HOST=logs.papertrailapp.com  # Papertrail host (optional)
+VITE_PAPERTRAIL_PORT=12345         # Papertrail port (optional)
+VITE_PAPERTRAIL_HOSTNAME=currency-monitor-frontend  # Identifier in logs (optional)
+```
+
+### Environment Variables Details
+
+#### WebSocket Configuration
+- `VITE_WS_URL`: WebSocket server URL
+  - Default: ws://localhost:3000
+  - Required: Yes
+  - Example: ws://your-backend-url for production
+
+#### Logger Configuration
+- `VITE_LOG_LEVEL`: The minimum level of logs to output
+  - Values: 'debug', 'info', 'warn', 'error'
+  - Default: 'info'
+  - Required: No
+
+- `VITE_PAPERTRAIL_HOST`: Papertrail logging service host
+  - Required: No
+  - Only needed if using Papertrail logging
+  - Sign up at: https://papertrailapp.com/
+
+- `VITE_PAPERTRAIL_PORT`: Papertrail logging service port
+  - Required: No
+  - Only needed if using Papertrail logging
+
+- `VITE_PAPERTRAIL_HOSTNAME`: Identifier for this service in logs
+  - Default: 'currency-monitor-frontend'
+  - Required: No
 
 ## Features
 
@@ -45,18 +85,17 @@ npm run dev
 
 5. Open your browser and navigate to `http://localhost:5173`
 
-## Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| VITE_WS_URL | WebSocket server URL | ws://localhost:3000 |
-
 ## Application Structure
 
-- `src/App.jsx` - Main application component with WebSocket connection logic
+- `src/App.tsx` - Main application component with WebSocket connection logic
 - `src/components/`
-  - `CurrencyTable.jsx` - Displays current exchange rates
-  - `PriceChangeHistory.jsx` - Shows recent price changes in a slider
+  - `CurrencyTable.tsx` - Displays current exchange rates
+  - `PriceChangeHistory.tsx` - Shows recent price changes in a slider
+  - `RateChangeAlert.tsx` - Shows alerts for rate changes
+- `src/types/`
+  - `index.ts` - TypeScript type definitions
+- `src/utils/`
+  - `logger.ts` - Custom logging utility
 
 ## Features in Detail
 

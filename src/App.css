@@ -389,3 +389,44 @@ tr:hover {
     background: #888;
     border-radius: 4px;
 }
+
+/* Add placeholder styles */
+.price-change-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #888;
+}
+
+.placeholder-icon {
+    font-size: 2rem;
+    animation: bounce 1s infinite;
+}
+
+.placeholder-text {
+    color: #666;
+    line-height: 1.5;
+}
+
+.placeholder-text span {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
