@@ -9,7 +9,6 @@ const App: React.FC = () => {
     const [rates, setRates] = useState<Rates>({});
     const [priceChanges, setPriceChanges] = useState<Rate[]>([]);
     const [wsStatus, setWsStatus] = useState<string>('Connecting...');
-    const [ws, setWs] = useState<WebSocket | null>(null);
 
     const connectWebSocket = useCallback(() => {
         logger.info('Attempting WebSocket connection');
@@ -54,7 +53,6 @@ const App: React.FC = () => {
             }
         };
 
-        setWs(wsConnection);
         return wsConnection;
     }, []);
 
