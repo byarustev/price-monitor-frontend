@@ -1,11 +1,13 @@
 version: '3.8'
 services:
   frontend:
+    container_name: currency-monitor-frontend
     build: .
     ports:
       - "80:80"
     environment:
       - NODE_ENV=production
+      - VITE_WS_URL=ws://host.docker.internal:3000?apiKey=a3f1b2c4d5e6f7g8h9i0j1k2l3m4n5o6
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "wget", "--spider", "http://localhost:80" ]

@@ -178,7 +178,7 @@ docker build -t currency-monitor-frontend .
 
 2. Run the container:
 ```bash
-docker run -p 80:80 -e VITE_WS_URL=ws://your-backend-url currency-monitor-frontend
+docker run -p 80:80 --env-file .env currency-monitor-frontend
 ```
 
 ### Using Docker Compose
@@ -201,9 +201,18 @@ docker-compose down
 ### Environment Variables in Docker
 
 When running with Docker, you can set environment variables in multiple ways:
+- Using the `--env-file .env` flag with docker run
 - Using the `.env` file with docker-compose
-- Using the `-e` flag with docker run
 - Using environment section in docker-compose.yml
+
+Example with the current development setup:
+```bash
+# Using docker run
+docker run -p 80:80 --env-file .env currency-monitor-frontend
+
+# Content of .env file
+VITE_WS_URL=ws://localhost:3000?apiKey=a3f1b2c4d5e6f7g8h9i0j1k2l3m4n5o6
+```
 
 ### Production Deployment
 
